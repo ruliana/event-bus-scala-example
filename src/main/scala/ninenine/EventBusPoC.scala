@@ -6,9 +6,7 @@ import akka.event.LookupClassification
 
 final case class SimpleEvent(topic: String, payload: Any)
 
-// It could be a simple class, however, we would need to
-// pass it as parameter everywhere.
-object EventBusPoC  extends EventBus with LookupClassification {
+class EventBusPoC  extends EventBus with LookupClassification {
   override type Event = SimpleEvent
   override type Classifier = String
   override type Subscriber = ActorRef
